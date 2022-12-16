@@ -161,11 +161,11 @@
       // 异步学生登录
       async checkLogin(){
         const {sno, stuPsw} = this;
-        let result = await reqLogin({sno, stuPsw});
-        if (result.statu == 0) {
+        let result = await reqLogin({student_no:sno, password:stuPsw});
+        if (result.http_status == 200) {
           const user = result.data;
           Toast({
-            message: '登录成功',
+            message: result.msg,
             iconClass: 'iconfont iconunie045',
             duration: 1500
           });

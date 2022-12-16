@@ -13,7 +13,12 @@ export const reqRotationImages = () => ajax(BASE_URL + '/getRotationImages')
 /*
   校验学生登录
  */
-export const reqLogin = ({sno, stuPsw}) => ajax(BASE_URL + '/checkStudentLogin', {sno, stuPsw}, 'POST')
+export const reqLogin = (data) => request({
+  url: `/auth/login`,
+  method: 'post',
+  data
+})
+
 /*
   请求登出
  */
